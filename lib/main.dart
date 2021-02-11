@@ -24,10 +24,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Color gradientStart = Colors.green[600];
-  Color gradientEnd = Colors.yellow[300];
+  Color gradientStart = Colors.green[300];
+  Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
   int _minutes = 25;
+  int selectedMinute;
   Timer _timer;
   var f = NumberFormat("00");
 
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (_timer != null) {
       _timer.cancel();
       _seconds = 0;
-      _minutes = 25;
+      _minutes = selectedMinute;
     }
   }
 
@@ -86,6 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
             SingleCircularSlider(
               120,
               25,
+              width: MediaQuery.of(context).size.width / 2,
+              height: MediaQuery.of(context).size.height / 3,
               child: Center(
                 child: Text(
                   "${f.format(_minutes)} : ${f.format(_seconds)}",
@@ -99,12 +102,16 @@ class _MyHomePageState extends State<MyHomePage> {
               selectionColor: Colors.white,
               onSelectionEnd: (init, end, laps) {
                 setState(() {
-                  _minutes = end;
+                  if(end%5 == 0 && end > 0 ){
+                    _minutes = end;
+                  }
                 });
               },
               onSelectionChange: (init, end, laps) {
                 setState(() {
-                  _minutes = end;
+                  if(end%5 == 0 && end > 0 ){
+                    _minutes = end;
+                  }
                 });
               },
             ),
