@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _timer.cancel();
       _seconds = 0;
       _minutes = selectedMinute;
+      _timer = null;
     }
   }
 
@@ -84,36 +85,41 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SingleCircularSlider(
-              120,
-              25,
-              width: MediaQuery.of(context).size.width / 2,
-              height: MediaQuery.of(context).size.height / 3,
-              child: Center(
-                child: Text(
-                  "${f.format(_minutes)} : ${f.format(_seconds)}",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
+            IgnorePointer(
+              ignoring: true ? _timer!= null: _timer == null,
+              child: SingleCircularSlider(
+                120,
+                25,
+                width: MediaQuery.of(context).size.width / 2,
+                height: MediaQuery.of(context).size.height / 3,
+                child: Center(
+                  child: Text(
+                    "${f.format(_minutes)} : ${f.format(_seconds)}",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 48,
+                    ),
                   ),
                 ),
+                baseColor: Color.fromRGBO(255, 255, 255, .2),
+                selectionColor: Colors.white,
+                onSelectionEnd: (init, end, laps) {
+                  setState(() {
+                    if(end%5 == 0 && end > 0 ){
+                      _minutes = end;
+                      selectedMinute = _minutes;
+                    }
+                  });
+                },
+                onSelectionChange: (init, end, laps) {
+                  setState(() {
+                    if(end%5 == 0 && end > 0 ){
+                      _minutes = end;
+                      selectedMinute = _minutes;
+                    }
+                  });
+                },
               ),
-              baseColor: Color.fromRGBO(255, 255, 255, .2),
-              selectionColor: Colors.white,
-              onSelectionEnd: (init, end, laps) {
-                setState(() {
-                  if(end%5 == 0 && end > 0 ){
-                    _minutes = end;
-                  }
-                });
-              },
-              onSelectionChange: (init, end, laps) {
-                setState(() {
-                  if(end%5 == 0 && end > 0 ){
-                    _minutes = end;
-                  }
-                });
-              },
             ),
             SizedBox(
               height: 200,
@@ -125,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     setState(() {
                       _stopTimer();
+                      _startTimer();
                     });
                   },
                   color: Colors.black,
