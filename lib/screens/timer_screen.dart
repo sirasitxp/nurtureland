@@ -7,6 +7,7 @@ class TimerScreen extends StatefulWidget {
   _TimerScreenState createState() => _TimerScreenState();
 }
 
+
 class _TimerScreenState extends State<TimerScreen> {
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
@@ -53,6 +54,11 @@ class _TimerScreenState extends State<TimerScreen> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
