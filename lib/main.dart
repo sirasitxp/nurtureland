@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:intl/intl.dart';
+import 'package:nurtureland/screens/timer_screen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -87,7 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 RaisedButton(
                   onPressed: () {
 //                    Navigate to next screen
-                  
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TimerScreen()),
+                    );
                   },
                   color: Colors.green[400],
                   shape: CircleBorder(),
