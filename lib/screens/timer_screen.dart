@@ -12,7 +12,7 @@ class _TimerScreenState extends State<TimerScreen> {
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
   int _minutes = 25;
-  int selectedMinute;
+  int selectedMinute = 25;
   Timer _timer;
   var f = NumberFormat("00");
 
@@ -21,7 +21,6 @@ class _TimerScreenState extends State<TimerScreen> {
       _timer.cancel();
       _seconds = 0;
       _minutes = selectedMinute;
-      _timer = null;
     }
   }
 
@@ -47,14 +46,33 @@ class _TimerScreenState extends State<TimerScreen> {
           } else {
             _timer.cancel();
             print("Timer Complete");
+            _minutes = selectedMinute;
           }
         }
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: FloatingActionButton(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Icon(
+              Icons.arrow_back,
+              size: 30,
+            ),
+          ),
+        ),
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
       body: Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
@@ -69,14 +87,14 @@ class _TimerScreenState extends State<TimerScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Center(
-                child: Text(
-                  "${f.format(_minutes)} : ${f.format(_seconds)}",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                  ),
+              child: Text(
+                "${f.format(_minutes)} : ${f.format(_seconds)}",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 48,
                 ),
               ),
+            ),
             SizedBox(
               height: 200,
             ),

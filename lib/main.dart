@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:intl/intl.dart';
 import 'package:nurtureland/screens/timer_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.only(
                         top: 40, bottom: 40, left: 10, right: 10),
                     child: Text(
-                      "Start Working",
+                      "Start",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -108,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-
               ],
             ),
           ],
