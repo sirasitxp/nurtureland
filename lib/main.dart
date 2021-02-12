@@ -2,8 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:intl/intl.dart';
-
-// Checking
 void main() {
   runApp(MyApp());
 }
@@ -29,45 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _seconds = 00;
   int _minutes = 25;
   int selectedMinute;
-  Timer _timer;
   var f = NumberFormat("00");
-
-  void _stopTimer() {
-    if (_timer != null) {
-      _timer.cancel();
-      _seconds = 0;
-      _minutes = selectedMinute;
-      _timer = null;
-    }
-  }
-
-  void _startTimer() {
-    if (_timer != null) {
-      _stopTimer();
-    }
-    if (_minutes > 0) {
-      _seconds = _minutes * 60;
-    }
-    if (_seconds > 60) {
-      _minutes = (_seconds / 60).floor();
-      _seconds -= (_minutes * 60);
-    }
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-        if (_seconds > 0) {
-          _seconds--;
-        } else {
-          if (_minutes > 0) {
-            _seconds = 59;
-            _minutes--;
-          } else {
-            _timer.cancel();
-            print("Timer Complete");
-          }
-        }
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,41 +45,38 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            IgnorePointer(
-              ignoring: true ? _timer!= null: _timer == null,
-              child: SingleCircularSlider(
-                120,
-                25,
-                width: MediaQuery.of(context).size.width / 2,
-                height: MediaQuery.of(context).size.height / 3,
-                child: Center(
-                  child: Text(
-                    "${f.format(_minutes)} : ${f.format(_seconds)}",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 48,
-                    ),
+            SingleCircularSlider(
+              120,
+              25,
+              width: MediaQuery.of(context).size.width / 2,
+              height: MediaQuery.of(context).size.height / 3,
+              child: Center(
+                child: Text(
+                  "${f.format(_minutes)} : ${f.format(_seconds)}",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 48,
                   ),
                 ),
-                baseColor: Color.fromRGBO(255, 255, 255, .2),
-                selectionColor: Colors.white,
-                onSelectionEnd: (init, end, laps) {
-                  setState(() {
-                    if(end%5 == 0 && end > 0 ){
-                      _minutes = end;
-                      selectedMinute = _minutes;
-                    }
-                  });
-                },
-                onSelectionChange: (init, end, laps) {
-                  setState(() {
-                    if(end%5 == 0 && end > 0 ){
-                      _minutes = end;
-                      selectedMinute = _minutes;
-                    }
-                  });
-                },
               ),
+              baseColor: Color.fromRGBO(255, 255, 255, .2),
+              selectionColor: Colors.white,
+              onSelectionEnd: (init, end, laps) {
+                setState(() {
+                  if (end % 5 == 0 && end > 0) {
+                    _minutes = end;
+                    selectedMinute = _minutes;
+                  }
+                });
+              },
+              onSelectionChange: (init, end, laps) {
+                setState(() {
+                  if (end % 5 == 0 && end > 0) {
+                    _minutes = end;
+                    selectedMinute = _minutes;
+                  }
+                });
+              },
             ),
             SizedBox(
               height: 200,
@@ -129,36 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 RaisedButton(
                   onPressed: () {
-                    setState(() {
-                      _stopTimer();
-                      _startTimer();
-                    });
-                  },
-                  color: Colors.black,
-                  shape:
-                      CircleBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
-                    child: Text(
-                      "Restart",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    _startTimer();
+//                    Navigate to next screen
+                  
                   },
                   color: Colors.green[400],
-                  shape:
-                      CircleBorder(),
+                  shape: CircleBorder(),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 40, bottom: 40, left: 10, right: 10),
+                    padding: const EdgeInsets.only(
+                        top: 40, bottom: 40, left: 10, right: 10),
                     child: Text(
-                      "Start",
+                      "Start Working",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -167,27 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                RaisedButton(
-                  onPressed: () {
-                    setState(() {
-                      _stopTimer();
-                    });
-                  },
-                  color: Colors.white,
-                  shape:
-                  CircleBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 30, left: 10, right: 10),
-                    child: Text(
-                      "Stop",
-                      style: TextStyle(
-                        color: Colors.green[400],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
+
               ],
             ),
           ],
