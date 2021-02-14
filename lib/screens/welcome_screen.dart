@@ -18,6 +18,13 @@ class _MyHomePageState extends State<MyHomePage> {
   var f = NumberFormat("00");
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    selectedMinute = Minutes(_minutes);
+
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -53,7 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   if (end % 5 == 0 && end > 0) {
                     _minutes = end;
-                    selectedMinute.workingTime = _minutes;
+                    selectedMinute = Minutes(_minutes);
+
                   }
                 });
               },
@@ -61,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   if (end % 5 == 0 && end > 0) {
                     _minutes = end;
-                    selectedMinute.workingTime = _minutes;
+                    selectedMinute = Minutes(_minutes);
                   }
                 });
               },
@@ -77,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //                    Navigate to next screen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => TimerScreen()),
+                      MaterialPageRoute(builder: (context) => TimerScreen(selectedMinute)),
                     );
                   },
                   color: Colors.green[400],

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:nurtureland/Models/minutes.dart';
 
 class TimerScreen extends StatefulWidget {
+  Minutes passedData;
+  TimerScreen(@required this.passedData);
+
   @override
   _TimerScreenState createState() => _TimerScreenState();
 }
@@ -13,7 +17,7 @@ class _TimerScreenState extends State<TimerScreen> {
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
   int _minutes = 25;
-  int selectedMinute = 25;
+  Minutes selectedMinute;
   Timer _timer;
   var f = NumberFormat("00");
 
@@ -21,7 +25,7 @@ class _TimerScreenState extends State<TimerScreen> {
     if (_timer != null) {
       _timer.cancel();
       _seconds = 0;
-      _minutes = selectedMinute;
+      _minutes = selectedMinute.workingTime;
     }
   }
 
@@ -47,7 +51,7 @@ class _TimerScreenState extends State<TimerScreen> {
           } else {
             _timer.cancel();
             print("Timer Complete");
-            _minutes = selectedMinute;
+            _minutes = selectedMinute.workingTime;
           }
         }
       });
@@ -57,6 +61,8 @@ class _TimerScreenState extends State<TimerScreen> {
   @override
   void initState() {
     super.initState();
+    selectedMinute = Minutes(widget.passedData.workingTime);
+    _minutes = selectedMinute.workingTime;
     _startTimer();
   }
   @override
