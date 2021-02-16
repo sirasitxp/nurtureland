@@ -63,7 +63,7 @@ packages:
       name: circular_countdown_timer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.9"
+    version: "0.1.0"
   cli_util:
     dependency: transitive
     description:
