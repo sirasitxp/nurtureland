@@ -66,10 +66,10 @@ class _TimerScreenState extends State<TimerScreen> {
               child: CircularCountDownTimer(
                 duration: _seconds,
                 controller: _controller,
-                width: MediaQuery.of(context).size.width /1.5,
-                height: MediaQuery.of(context).size.height / 2,
+                width: MediaQuery.of(context).size.width /1.25,
+                height: MediaQuery.of(context).size.height / 3,
                 fillColor: Colors.yellow[100],
-                ringColor: Colors.yellow[300],
+                ringColor: Colors.white,
                 backgroundColor: Colors.transparent,
                 strokeWidth: 20.0,
                 strokeCap: StrokeCap.round,
@@ -116,7 +116,7 @@ class _TimerScreenState extends State<TimerScreen> {
                 ),
                 RaisedButton(
                   onPressed: () {
-                    _controller.start();
+                    _controller.pause();
                   },
                   color: Colors.green[400],
                   shape: CircleBorder(),
@@ -124,7 +124,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     padding: const EdgeInsets.only(
                         top: 40, bottom: 40, left: 10, right: 10),
                     child: Text(
-                      "Start",
+                      (_controller!= null)?"Pause":"Resume",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
