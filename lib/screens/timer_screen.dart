@@ -1,7 +1,5 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:intl/intl.dart';
 import 'package:nurtureland/Models/minutes.dart';
 
 class TimerScreen extends StatefulWidget {

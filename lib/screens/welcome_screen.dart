@@ -15,7 +15,13 @@ class _MyHomePageState extends State<MyHomePage> {
   int _seconds = 00;
   int _minutes = 25;
   Minutes selectedMinute;
+  int _selectedIndex =0;
   var f = NumberFormat("00");
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   void initState() {
@@ -24,10 +30,69 @@ class _MyHomePageState extends State<MyHomePage> {
     selectedMinute = Minutes(_minutes);
 
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: Stack(
+        children: [
+          (_selectedIndex == 0)? taskTab(context):
+          (_selectedIndex == 1)? timerTab(context):
+              Container(),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: BottomNavigationBar(
+            elevation: 0.0,
+            backgroundColor: Colors.transparent,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.check_circle),
+                label: 'Tasks',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                    Icons.timer,
+                    size: 40,
+
+                ),
+                label: 'Timer',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.landscape),
+                label: 'Land',
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            selectedItemColor: Colors.green[800],
+            onTap: _onItemTapped),
+      ),
+    ]
+      ),
+
+    );
+  }
+
+  Container taskTab(BuildContext context) {
+    return Container(
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+            colors: [gradientStart, gradientEnd],
+            begin: const FractionalOffset(0.5, 0.0),
+            end: const FractionalOffset(0.0, 0.5),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+        ],
+      ),
+    );
+  }
+
+  Container timerTab(BuildContext context) {
+    return Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
               colors: [gradientStart, gradientEnd],
@@ -107,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
+
 }
