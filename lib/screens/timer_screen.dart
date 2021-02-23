@@ -87,7 +87,14 @@ class _TimerScreenState extends State<TimerScreen> {
               ),
             ),
             SizedBox(
-              height: 200,
+              height: 275,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Center(
+                  child:Image(
+                      image: AssetImage('images/bare_tree.png'))
+                ),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,59 +102,21 @@ class _TimerScreenState extends State<TimerScreen> {
                 RaisedButton(
                   onPressed: () {
                     setState(() {
-                      _controller.restart();
+                      _controller.pause();
+                      Navigator.pop(context);
                     });
                   },
-                  color: Colors.black,
-                  shape: CircleBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 30, bottom: 30, left: 10, right: 10),
-                    child: Text(
-                      "Restart",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    _controller.pause();
-                  },
-                  color: Colors.green[400],
+                  color: Colors.orange[300],
                   shape: CircleBorder(),
                   child: Padding(
                     padding: const EdgeInsets.only(
                         top: 40, bottom: 40, left: 10, right: 10),
                     child: Text(
-                      (_controller!= null)?"Pause":"Resume",
+                      "Give up",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ),
-                ),
-                RaisedButton(
-                  onPressed: () {
-                    setState(() {
-                      _controller.pause();
-                    });
-                  },
-                  color: Colors.white,
-                  shape: CircleBorder(),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 30, bottom: 30, left: 10, right: 10),
-                    child: Text(
-                      "Stop",
-                      style: TextStyle(
-                        color: Colors.green[400],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                        fontSize: 20,
                       ),
                     ),
                   ),

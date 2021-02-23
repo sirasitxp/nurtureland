@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           (_selectedIndex == 0)? taskTab(context):
           (_selectedIndex == 1)? timerTab(context):
-              Container(),
+              landTab(context),
       Align(
         alignment: Alignment.bottomCenter,
         child: BottomNavigationBar(
@@ -86,6 +86,27 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+
+        ],
+      ),
+    );
+  }
+
+  Container landTab(BuildContext context) {
+    return Container(
+      decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+            colors: [gradientStart, gradientEnd],
+            begin: const FractionalOffset(0.5, 0.0),
+            end: const FractionalOffset(0.0, 0.5),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image(image: AssetImage('images/tree.png'))
         ],
       ),
     );
