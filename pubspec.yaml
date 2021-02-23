@@ -31,6 +31,9 @@ dependencies:
   intl: ^0.16.1
   flutter_circular_slider: ^2.5.0
   circular_countdown_timer: ^0.1.0
+  flutter_icons: ^1.1.0
+  circular_check_box: ^1.0.4
+
 
 dev_dependencies:
   flutter_test:
