@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:intl/intl.dart';
 import 'package:nurtureland/screens/timer_screen.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:nurtureland/Models/minutes.dart';
 import 'package:nurtureland/widgets/tasks_list.dart';
+import 'package:flutter_cube/flutter_cube.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -127,6 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Container landTab(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
             colors: [gradientStart, gradientEnd],
@@ -135,14 +137,15 @@ class _MyHomePageState extends State<MyHomePage> {
             stops: [0.0, 1.0],
             tileMode: TileMode.clamp),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-              child: Image(
-                  image: AssetImage('images/tree.png')))
-        ],
+      child: Center(
+        child: Cube(
+          onSceneCreated: (Scene scene) {
+            Object forest = Object(fileName:'images/PUSHILIN_pine_tree.obj', scale: Vector3(5.0, 5.0, 5.0));
+            scene.world.add(forest);
+
+
+          },
+        ),
       ),
     );
   }

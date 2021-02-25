@@ -33,6 +33,7 @@ dependencies:
   circular_countdown_timer: ^0.1.0
   flutter_icons: ^1.1.0
   circular_check_box: ^1.0.4
+  flutter_cube: ^0.0.6
 
 
 dev_dependencies:
