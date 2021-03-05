@@ -35,6 +35,7 @@ dependencies:
   circular_check_box: ^1.0.4
   flutter_cube: ^0.0.6
   horizontal_card_pager: ^1.0.3
+  scroll_snap_list: ^0.6.0
 
 
 dev_dependencies:
