@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:horizontal_card_pager/card_item.dart';
+import 'package:horizontal_card_pager/horizontal_card_pager.dart';
 import 'package:intl/intl.dart';
 import 'package:nurtureland/screens/timer_screen.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
@@ -12,6 +14,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<CardItem> items = [
+    IconTitleCardItem(
+      text: "Mon 1",
+      iconData: Icons.timer,
+      selectedBgColor: Colors.green,
+    ),
+    IconTitleCardItem(
+      text: "Tue 2",
+      iconData: Icons.add,
+      selectedBgColor: Colors.green,
+
+    ),
+    IconTitleCardItem(
+      text: "Wed 3",
+      iconData: Icons.add_call,
+      selectedBgColor: Colors.green,
+
+    ),
+    IconTitleCardItem(
+      text: "Thu 4",
+      iconData: Icons.wifi,
+      selectedBgColor: Colors.green,
+
+    ),
+    IconTitleCardItem(
+      text: "Fri 5",
+      iconData: Icons.attach_file,
+      selectedBgColor: Colors.green,
+
+    ),
+    IconTitleCardItem(
+      text: "Sat 6",
+      iconData: Icons.airplay,
+      selectedBgColor: Colors.green,
+
+    ),
+    IconTitleCardItem(
+      text: "Sun 7",
+      iconData: Icons.airplay,
+      selectedBgColor: Colors.green,
+
+    ),
+  ];
+
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
@@ -112,6 +158,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ]),
+          SizedBox(
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
+              child: HorizontalCardPager(
+                onPageChanged: (page) => print("page : $page"),
+                onSelectedItem: (page) => print("selected : $page"),
+                items: items),
+            ),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10),
