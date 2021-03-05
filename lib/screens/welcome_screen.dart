@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   bottomLeft: Radius.circular(40),
                 ),
               ),
-              padding: EdgeInsets.only(left: 20, top: 75),
+              padding: EdgeInsets.only(left: 15, top: 60),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -99,9 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: double.infinity,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 60, bottom: 30),
+                    padding: const EdgeInsets.only(left: 30, bottom: 30),
                     child: Text(
-                      "Tasks",
+                      "Goal: Get Good Grade.",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
