@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:circular_check_box/circular_check_box.dart';
+import 'package:roundcheckbox/roundcheckbox.dart';
 
 class TaskTile extends StatefulWidget {
   @override
   _TaskTileState createState() => _TaskTileState();
 }
 
-
 class _TaskTileState extends State<TaskTile> {
-  bool selected=false;
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -17,22 +16,31 @@ class _TaskTileState extends State<TaskTile> {
         style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
-            decoration:(selected) ? TextDecoration.lineThrough: null
-        ),
+            decoration: (selected) ? TextDecoration.lineThrough : null),
       ),
-      leading: CircularCheckBox(
-        value: this.selected,
-        checkColor: Colors.black,
-        activeColor: Colors.green,
-        inactiveColor: Colors.grey,
-        disabledColor: Colors.green,
-        onChanged: (val){
+      leading: RoundCheckBox(
+        onTap: (selected) {
           this.setState(() {
-            this.selected= !this.selected;
+            this.selected = !this.selected;
           });
         },
+        borderColor: Colors.black12,
+        isChecked: true,
+        size: 30,
       ),
     );
   }
 }
 
+// CircularCheckBox(
+// value: this.selected,
+// checkColor: Colors.black,
+// activeColor: Colors.green,
+// inactiveColor: Colors.grey,
+// disabledColor: Colors.green,
+// onChanged: (val) {
+// this.setState(() {
+// this.selected = !this.selected;
+// });
+// },
+// ),
