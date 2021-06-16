@@ -7,7 +7,7 @@ class TaskTile extends StatefulWidget {
 }
 
 class _TaskTileState extends State<TaskTile> {
-  bool selected = false;
+  bool selected = true;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -27,6 +27,7 @@ class _TaskTileState extends State<TaskTile> {
         borderColor: Colors.black12,
         isChecked: true,
         size: 30,
+        animationDuration: Duration(milliseconds: 0),
       ),
     );
   }

@@ -10,7 +10,6 @@ class TimerScreen extends StatefulWidget {
   _TimerScreenState createState() => _TimerScreenState();
 }
 
-
 class _TimerScreenState extends State<TimerScreen> {
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
@@ -24,9 +23,10 @@ class _TimerScreenState extends State<TimerScreen> {
     super.initState();
     selectedMinute = Minutes(widget.passedData.workingTime);
     _minutes = selectedMinute.workingTime;
-    _seconds = _minutes*60;
+    _seconds = _minutes * 60;
     _controller = CountDownController();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +43,7 @@ class _TimerScreenState extends State<TimerScreen> {
             ),
           ),
         ),
-        onPressed: (){
+        onPressed: () {
           Navigator.pop(context);
         },
       ),
@@ -64,16 +64,17 @@ class _TimerScreenState extends State<TimerScreen> {
               child: CircularCountDownTimer(
                 duration: _seconds,
                 controller: _controller,
-                width: MediaQuery.of(context).size.width /1.25,
+                width: MediaQuery.of(context).size.width / 1.25,
                 height: MediaQuery.of(context).size.height / 3,
                 fillColor: Colors.yellow[100],
                 ringColor: Colors.white,
                 backgroundColor: Colors.transparent,
                 strokeWidth: 20.0,
                 strokeCap: StrokeCap.round,
-                textStyle: TextStyle(
-                    fontSize: 48.0, color: Colors.white),
-                textFormat: (_minutes < 60) ?  CountdownTextFormat.MM_SS: CountdownTextFormat.HH_MM_SS,
+                textStyle: TextStyle(fontSize: 48.0, color: Colors.white),
+                textFormat: (_minutes < 60)
+                    ? CountdownTextFormat.MM_SS
+                    : CountdownTextFormat.HH_MM_SS,
                 isReverse: true,
                 isReverseAnimation: true,
                 isTimerTextShown: true,
@@ -91,9 +92,7 @@ class _TimerScreenState extends State<TimerScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Center(
-                  child:Image(
-                      image: AssetImage('images/bare_tree.png'))
-                ),
+                    child: Image(image: AssetImage('images/bare_tree.png'))),
               ),
             ),
             Row(
