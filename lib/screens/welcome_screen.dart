@@ -200,8 +200,6 @@ class _MyHomePageState extends State<MyHomePage> {
           onSceneCreated: (Scene scene) {
             Object forest = Object(fileName:'images/PUSHILIN_pine_tree.obj', scale: Vector3(5.0, 5.0, 5.0));
             scene.world.add(forest);
-
-
           },
         ),
       ),
