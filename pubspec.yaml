@@ -36,6 +36,8 @@ dependencies:
   horizontal_card_pager: ^1.0.3
   scroll_snap_list: ^0.6.0
   roundcheckbox: ^2.0.1
+  image_sequence_animator: ^2.0.0
+
 
 
 
