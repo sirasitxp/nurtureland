@@ -93,7 +93,17 @@ class _TimerScreenState extends State<TimerScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Center(
-                    child: Image(image: AssetImage('images/bare_tree.png'))),
+                  child: ImageSequenceAnimator(
+                    "images",
+                    "Frame_",
+                    0,
+                    5,
+                    "png",
+                    60,
+                    onReadyToPlay: onOfflineReadyToPlay,
+                    onPlaying: onOfflinePlaying,
+                  ),
+                ),
               ),
             ),
             Row(
