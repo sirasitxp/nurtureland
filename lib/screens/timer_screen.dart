@@ -12,7 +12,8 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  final String folderName = '';
+  bool isOnline = false;
+  bool wasPlaying = false;
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
@@ -27,6 +28,26 @@ class _TimerScreenState extends State<TimerScreen> {
     _minutes = selectedMinute.workingTime;
     _seconds = _minutes * 60;
     _controller = CountDownController();
+  }
+
+  int updateFrame(int minutes) {
+    if (minutes % 5 == 0) {
+      if (_minutes == 0) {
+        return 5;
+      } else {
+        return 0;
+      }
+    } else if (_minutes % 5 == 1) {
+      return 4;
+    } else if (_minutes % 5 == 1) {
+      return 4;
+    } else if (_minutes % 5 == 2) {
+      return 3;
+    } else if (_minutes % 5 == 3) {
+      return 2;
+    } else if (_minutes % 5 == 4) {
+      return 1;
+    }
   }
 
   @override
@@ -94,17 +115,9 @@ class _TimerScreenState extends State<TimerScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Center(
-                  child: ImageSequenceAnimator(
-                    "images",
-                    "Frame_",
-                    0,
-                    5,
-                    "png",
-                    60,
-                    onReadyToPlay: onOfflineReadyToPlay,
-                    onPlaying: onOfflinePlaying,
-                  ),
-                ),
+                    child: Image(
+                        image: AssetImage(
+                            'images/ImageSequences/Frame_00000.png'))),
               ),
             ),
             Row(
