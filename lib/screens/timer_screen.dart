@@ -12,6 +12,7 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
+  final String folderName = '';
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
