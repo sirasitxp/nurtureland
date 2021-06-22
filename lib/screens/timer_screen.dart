@@ -102,8 +102,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     5,
                     "png",
                     6,
-                    fps: (selectedMinute.workingTime / 6) /
-                        (selectedMinute.workingTime * 60),
+                    fps: (6 / selectedMinute.workingTime) / 60,
                     // onFinishPlaying: //Todo: Add Tree to FarmLand,
                   ),
                 ),
