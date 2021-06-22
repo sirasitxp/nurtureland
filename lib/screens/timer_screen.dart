@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:nurtureland/Models/minutes.dart';
@@ -105,9 +103,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     "png",
                     6,
                     fps: (selectedMinute.workingTime / 6) /
-                        selectedMinute.workingTime *
-                        60,
-                    isLooping: true,
+                        (selectedMinute.workingTime * 60),
                     // onFinishPlaying: //Todo: Add Tree to FarmLand,
                   ),
                 ),
