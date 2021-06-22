@@ -30,26 +30,6 @@ class _TimerScreenState extends State<TimerScreen> {
     _controller = CountDownController();
   }
 
-  int updateFrame(int minutes) {
-    if (minutes % 5 == 0) {
-      if (_minutes == 0) {
-        return 5;
-      } else {
-        return 0;
-      }
-    } else if (_minutes % 5 == 1) {
-      return 4;
-    } else if (_minutes % 5 == 1) {
-      return 4;
-    } else if (_minutes % 5 == 2) {
-      return 3;
-    } else if (_minutes % 5 == 3) {
-      return 2;
-    } else if (_minutes % 5 == 4) {
-      return 1;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,9 +95,16 @@ class _TimerScreenState extends State<TimerScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Center(
-                    child: Image(
-                        image: AssetImage(
-                            'images/ImageSequences/Frame_00000.png'))),
+                  child: ImageSequenceAnimator(
+                    "images/ImageSequences",
+                    "Frame_",
+                    0,
+                    5,
+                    "png",
+                    6,
+                    fps: selectedMinute.workingTime / 360,
+                  ),
+                ),
               ),
             ),
             Row(
