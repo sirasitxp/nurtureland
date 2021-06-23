@@ -8,7 +8,6 @@ import 'package:nurtureland/Models/minutes.dart';
 import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 
-
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -25,37 +24,31 @@ class _MyHomePageState extends State<MyHomePage> {
       text: "Tue 2",
       iconData: Icons.add,
       selectedBgColor: Colors.green,
-
     ),
     IconTitleCardItem(
       text: "Wed 3",
       iconData: Icons.add_call,
       selectedBgColor: Colors.green,
-
     ),
     IconTitleCardItem(
       text: "Thu 4",
       iconData: Icons.wifi,
       selectedBgColor: Colors.green,
-
     ),
     IconTitleCardItem(
       text: "Fri 5",
       iconData: Icons.attach_file,
       selectedBgColor: Colors.green,
-
     ),
     IconTitleCardItem(
       text: "Sat 6",
       iconData: Icons.airplay,
       selectedBgColor: Colors.green,
-
     ),
     IconTitleCardItem(
       text: "Sun 7",
       iconData: Icons.airplay,
       selectedBgColor: Colors.green,
-
     ),
   ];
 
@@ -83,41 +76,39 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-          children: [
-            (_selectedIndex == 0) ? taskTab(context) :
-            (_selectedIndex == 1) ? timerTab(context) :
-            landTab(context),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: BottomNavigationBar(
-                  elevation: 0.0,
-                  backgroundColor: Colors.transparent,
-                  items: const <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.check_circle),
-                      label: 'Tasks',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.timer,
-                        size: 40,
-
-                      ),
-                      label: 'Timer',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.landscape),
-                      label: 'Land',
-                    ),
-                  ],
-                  currentIndex: _selectedIndex,
-                  selectedItemColor: Colors.green[800],
-                  onTap: _onItemTapped),
-            ),
-          ]
-      ),
-
+      body: Stack(children: [
+        (_selectedIndex == 0)
+            ? taskTab(context)
+            : (_selectedIndex == 1)
+                ? timerTab(context)
+                : landTab(context),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: BottomNavigationBar(
+              elevation: 0.0,
+              backgroundColor: Colors.transparent,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.check_circle),
+                  label: 'Tasks',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.timer,
+                    size: 40,
+                  ),
+                  label: 'Timer',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.landscape),
+                  label: 'Land',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.green[800],
+              onTap: _onItemTapped),
+        ),
+      ]),
     );
   }
 
@@ -163,11 +154,11 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 100,
             width: MediaQuery.of(context).size.width,
             child: Padding(
-              padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
+              padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: HorizontalCardPager(
-                onPageChanged: (page) => print("page : $page"),
-                onSelectedItem: (page) => print("selected : $page"),
-                items: items),
+                  onPageChanged: (page) => print("page : $page"),
+                  onSelectedItem: (page) => print("selected : $page"),
+                  items: items),
             ),
           ),
           Expanded(
@@ -179,8 +170,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-
-
   }
 
   Container landTab(BuildContext context) {
@@ -198,8 +187,18 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Center(
         child: Cube(
           onSceneCreated: (Scene scene) {
-            Object forest = Object(fileName:'images/PUSHILIN_pine_tree.obj', scale: Vector3(5.0, 5.0, 5.0));
-            scene.world.add(forest);
+            Object farm = Object(
+              fileName: 'images/model.obj',
+              scale: Vector3(5.0, 5.0, 5.0),
+              position: Vector3(0, 0, 0),
+            );
+            scene.world.add(farm);
+            Object tree = Object(
+              fileName: 'images/tree_sample.obj',
+              scale: Vector3(5.0, 5.0, 5.0),
+              position: Vector3(0, 0, 0),
+            );
+            scene.world.add(tree);
           },
         ),
       ),
@@ -223,14 +222,8 @@ class _MyHomePageState extends State<MyHomePage> {
           SingleCircularSlider(
             120,
             25,
-            width: MediaQuery
-                .of(context)
-                .size
-                .width / 2,
-            height: MediaQuery
-                .of(context)
-                .size
-                .height / 3,
+            width: MediaQuery.of(context).size.width / 2,
+            height: MediaQuery.of(context).size.height / 3,
             child: Center(
               child: Text(
                 "${f.format(_minutes)} : ${f.format(_seconds)}",
@@ -295,5 +288,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
