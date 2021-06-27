@@ -188,9 +188,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Cube(
           onSceneCreated: (Scene scene) {
             Object farm = Object(
-              fileName: 'images/model.obj',
-              scale: Vector3(5.0, 5.0, 5.0),
-              position: Vector3(0, 0, 0),
+              fileName: 'images/earth.obj',
+              scale: Vector3(
+                5.0,
+                5.0,
+                5.0,
+              ),
             );
             scene.world.add(farm);
           },
