@@ -193,12 +193,6 @@ class _MyHomePageState extends State<MyHomePage> {
               position: Vector3(0, 0, 0),
             );
             scene.world.add(farm);
-            Object tree = Object(
-              fileName: 'images/tree_sample.obj',
-              scale: Vector3(5.0, 5.0, 5.0),
-              position: Vector3(0, 0, 0),
-            );
-            scene.world.add(tree);
           },
         ),
       ),
