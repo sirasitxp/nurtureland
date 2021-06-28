@@ -1,47 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 
-class TaskTile extends StatefulWidget {
-  @override
-  _TaskTileState createState() => _TaskTileState();
-}
+class TaskTile extends StatelessWidget {
+  final bool isChecked;
+  final String taskTitle;
+  final Function checkBoxCallback;
 
-class _TaskTileState extends State<TaskTile> {
-  bool selected = true;
-  @override
+  TaskTile({
+    this.isChecked,
+    this.taskTitle,
+    this.checkBoxCallback,
+  });
+
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Get Sh*t done",
+        taskTitle,
         style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
-            decoration: (selected) ? TextDecoration.lineThrough : null),
+            decoration: (isChecked) ? TextDecoration.lineThrough : null),
       ),
       leading: RoundCheckBox(
-        onTap: (selected) {
-          this.setState(() {
-            this.selected = !this.selected;
-          });
-        },
+        onTap: checkBoxCallback,
         borderColor: Colors.black12,
-        isChecked: true,
+        isChecked: isChecked,
         size: 30,
         animationDuration: Duration(milliseconds: 0),
       ),
     );
   }
 }
-
-// CircularCheckBox(
-// value: this.selected,
-// checkColor: Colors.black,
-// activeColor: Colors.green,
-// inactiveColor: Colors.grey,
-// disabledColor: Colors.green,
-// onChanged: (val) {
-// this.setState(() {
-// this.selected = !this.selected;
-// });
-// },
-// ),
