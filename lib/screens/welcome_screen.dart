@@ -68,6 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void addTodo() {
+    //  Add Todo list
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -81,13 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 75, right: 5),
-        child: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            // Add Todo list
-          },
-          backgroundColor: Colors.green,
-        ),
+        child: (_selectedIndex == 0)
+            ? FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: addTodo,
+                backgroundColor: Colors.green,
+              )
+            : Container(),
       ),
       body: Stack(children: [
         (_selectedIndex == 0)
