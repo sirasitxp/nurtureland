@@ -9,6 +9,8 @@ import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 
 class MyHomePage extends StatefulWidget {
+  int index;
+  MyHomePage(this.index);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -57,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _seconds = 00;
   int _minutes = 25;
   Minutes selectedMinute;
-  int _selectedIndex = 0;
+  int _selectedIndex;
   var f = NumberFormat("00");
 
   void _onItemTapped(int index) {
@@ -71,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // TODO: implement initState
     super.initState();
     selectedMinute = Minutes(_minutes);
+    _selectedIndex = widget.index;
   }
 
   @override
