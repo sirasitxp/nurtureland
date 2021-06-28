@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Minutes selectedMinute;
   int _selectedIndex;
   var f = NumberFormat("00");
+  final _textEditingController = TextEditingController();
+  String task = "";
 
   void _onItemTapped(int index) {
     setState(() {
@@ -70,6 +72,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void addTodo() {
     //  Add Todo list
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('What do I need to get done?'),
+        content: TextField(
+          controller: _textEditingController,
+          decoration: InputDecoration(labelText: 'Enter your todo here'),
+        ),
+        actions: <Widget>[
+          TextButton(
+              onPressed: () {
+                task = _textEditingController.text;
+                print(task);
+                Navigator.pop(context, 'Add');
+              },
+              child: const Text('Add')),
+        ],
+      ),
+    );
   }
 
   @override

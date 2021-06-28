@@ -7,14 +7,11 @@ import 'package:nurtureland/screens/welcome_screen.dart';
 class TimerScreen extends StatefulWidget {
   Minutes passedData;
   TimerScreen(@required this.passedData);
-
   @override
   _TimerScreenState createState() => _TimerScreenState();
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  bool isOnline = false;
-  bool wasPlaying = false;
   Color gradientStart = Colors.green[300];
   Color gradientEnd = Colors.yellow[200];
   int _seconds = 00;
@@ -108,7 +105,6 @@ class _TimerScreenState extends State<TimerScreen> {
                     "png",
                     6,
                     fps: (6 / selectedMinute.workingTime) / 60,
-                    // onFinishPlaying: //Todo: Add Tree to FarmLand,
                   ),
                 ),
               ),
