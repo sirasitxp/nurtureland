@@ -79,6 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 75, right: 5),
+        child: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            // Add Todo list
+          },
+          backgroundColor: Colors.green,
+        ),
+      ),
       body: Stack(children: [
         (_selectedIndex == 0)
             ? taskTab(context)
@@ -169,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(left: 10),
               child: TasksList(),
             ),
-          )
+          ),
         ],
       ),
     );
