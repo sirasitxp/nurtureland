@@ -8,6 +8,7 @@ import 'package:nurtureland/Models/minutes.dart';
 import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 import 'package:provider/provider.dart';
+import 'package:nurtureland/models/task_data.dart';
 
 class MyHomePage extends StatefulWidget {
   int index;
@@ -85,6 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 print(_textEditingController.text);
                 // TODO: Add NEW TASK
+                Provider.of<TaskData>(context, listen: false)
+                    .addTask(_textEditingController.text);
                 Navigator.pop(context, 'Add');
               },
               child: const Text('Add')),
@@ -200,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10, bottom: 100),
               child: TasksList(),
             ),
           ),
