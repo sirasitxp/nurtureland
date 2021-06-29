@@ -7,6 +7,7 @@ import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:nurtureland/Models/minutes.dart';
 import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   int index;
@@ -62,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
-  String task = "";
 
   void _onItemTapped(int index) {
     setState(() {
@@ -83,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           TextButton(
               onPressed: () {
-                task = _textEditingController.text;
-                print(task);
+                print(_textEditingController.text);
+                // TODO: Add NEW TASK
                 Navigator.pop(context, 'Add');
               },
               child: const Text('Add')),
@@ -95,7 +95,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     selectedMinute = Minutes(_minutes);
     _selectedIndex = widget.index;
