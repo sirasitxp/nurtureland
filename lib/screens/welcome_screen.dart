@@ -9,6 +9,7 @@ import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
 import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 
 class MyHomePage extends StatefulWidget {
   int index;
@@ -20,38 +21,28 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<CardItem> items = [
     IconTitleCardItem(
-      text: "Mon 1",
-      iconData: Icons.timer,
+      text: "Wealth Land",
+      iconData: Icons.attach_money_rounded,
       selectedBgColor: Colors.green,
     ),
     IconTitleCardItem(
-      text: "Tue 2",
-      iconData: Icons.add,
+      text: "Wisdom Land",
+      iconData: FontAwesome5.brain,
       selectedBgColor: Colors.green,
     ),
     IconTitleCardItem(
-      text: "Wed 3",
-      iconData: Icons.add_call,
+      text: "Love Land",
+      iconData: FontAwesome5.heart,
       selectedBgColor: Colors.green,
     ),
     IconTitleCardItem(
-      text: "Thu 4",
-      iconData: Icons.wifi,
+      text: "Health Land",
+      iconData: FontAwesome5.weight,
       selectedBgColor: Colors.green,
     ),
     IconTitleCardItem(
-      text: "Fri 5",
-      iconData: Icons.attach_file,
-      selectedBgColor: Colors.green,
-    ),
-    IconTitleCardItem(
-      text: "Sat 6",
-      iconData: Icons.airplay,
-      selectedBgColor: Colors.green,
-    ),
-    IconTitleCardItem(
-      text: "Sun 7",
-      iconData: Icons.airplay,
+      text: "Happiness Land",
+      iconData: FontAwesome5.smile,
       selectedBgColor: Colors.green,
     ),
   ];
@@ -198,6 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: HorizontalCardPager(
                   onPageChanged: (page) => print("page : $page"),
                   onSelectedItem: (page) => print("selected : $page"),
+                  initialPage: 0,
                   items: items),
             ),
           ),
