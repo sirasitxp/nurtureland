@@ -19,7 +19,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<CardItem> items = [
+  List<CardItem> buckets = [
     IconTitleCardItem(
       text: "Wealth Land",
       iconData: Icons.attach_money_rounded,
@@ -190,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPageChanged: (page) => print("page : $page"),
                   onSelectedItem: (page) => print("selected : $page"),
                   initialPage: 0,
-                  items: items),
+                  items: buckets),
             ),
           ),
           Expanded(
