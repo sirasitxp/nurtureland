@@ -199,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10, bottom: 100),
-              child: TasksList(),
+              child: TasksList(currentPage),
             ),
           ),
         ],

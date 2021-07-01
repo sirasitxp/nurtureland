@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
 
 class TasksList extends StatelessWidget {
+  TasksList(@required int page);
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(
