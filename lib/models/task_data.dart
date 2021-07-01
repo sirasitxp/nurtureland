@@ -23,11 +23,21 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
-  void addTask(String newTaskTitle, List<Task> list) {
+  void addTask(String newTaskTitle, int currentPage) {
     final task = Task(
       name: newTaskTitle,
     );
-    list.add(task);
+    if (currentPage == 0) {
+      _wealthList.add(task);
+    } else if (currentPage == 1) {
+      _wisdomList.add(task);
+    } else if (currentPage == 2) {
+      _loveList.add(task);
+    } else if (currentPage == 3) {
+      _healthList.add(task);
+    } else {
+      _happinessList.add(task);
+    }
     notifyListeners();
   }
 

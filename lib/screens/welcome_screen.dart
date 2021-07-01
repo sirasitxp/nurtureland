@@ -57,13 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
-  Map<int, String> mapList = {
-    0: 'Wealth Land',
-    1: 'Wisdom Land',
-    2: 'Love Land',
-    3: 'Health Land',
-    4: 'Happiness Land',
-  };
+  int currentPage = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -87,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 print(_textEditingController.text);
                 // TODO: Add NEW TASK
                 Provider.of<TaskData>(context, listen: false)
-                    .addTask(_textEditingController.text);
+                    .addTask(_textEditingController.text, currentPage);
                 Navigator.pop(context, 'Add');
               },
               child: const Text('Add')),
@@ -197,7 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: HorizontalCardPager(
                   onPageChanged: (page) => print("page : $page"),
-                  onSelectedItem: (page) => print("page : $page"),
+                  onSelectedItem: (page) => currentPage = page,
                   initialPage: 0,
                   items: buckets),
             ),
