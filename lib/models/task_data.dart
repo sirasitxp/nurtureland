@@ -19,6 +19,26 @@ class TaskData extends ChangeNotifier {
     return UnmodifiableListView(_tasks);
   }
 
+  UnmodifiableListView<Task> get wealthTask {
+    return UnmodifiableListView(wealthTask);
+  }
+
+  UnmodifiableListView<Task> get wisdomTask {
+    return UnmodifiableListView(wisdomTask);
+  }
+
+  UnmodifiableListView<Task> get loveTask {
+    return UnmodifiableListView(loveTask);
+  }
+
+  UnmodifiableListView<Task> get healthTask {
+    return UnmodifiableListView(healthTask);
+  }
+
+  UnmodifiableListView<Task> get happinessTask {
+    return UnmodifiableListView(happinessTask);
+  }
+
   int get taskCount {
     return _tasks.length;
   }

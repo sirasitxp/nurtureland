@@ -2,9 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:nurtureland/widgets/tasks_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
+import 'package:nurtureland/models/mypage.dart';
 
-class TasksList extends StatelessWidget {
-  TasksList(@required int page);
+class TasksList extends StatefulWidget {
+  final MyPage passedPage;
+  TasksList(@required this.passedPage);
+
+  @override
+  _TasksListState createState() => _TasksListState();
+}
+
+class _TasksListState extends State<TasksList> {
+  MyPage receivedPage;
+  int currentPage;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    receivedPage = MyPage(widget.passedPage.getCurrentPage);
+    currentPage = receivedPage.getCurrentPage;
+  }
 
   @override
   Widget build(BuildContext context) {

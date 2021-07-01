@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:horizontal_card_pager/card_item.dart';
 import 'package:horizontal_card_pager/horizontal_card_pager.dart';
@@ -12,6 +10,7 @@ import 'package:flutter_cube/flutter_cube.dart';
 import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
+import 'package:nurtureland/models/mypage.dart';
 
 class MyHomePage extends StatefulWidget {
   int index;
@@ -57,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
+  MyPage passingPage;
   int currentPage = 0;
 
   void _onItemTapped(int index) {
@@ -95,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     selectedMinute = Minutes(_minutes);
     _selectedIndex = widget.index;
+    passingPage = MyPage(currentPage);
   }
 
   @override
@@ -191,15 +192,21 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: HorizontalCardPager(
                   onPageChanged: (page) => print("page : $page"),
-                  onSelectedItem: (page) => currentPage = page,
-                  initialPage: 0,
+                  onSelectedItem: (page) {
+                    setState(() {
+                      currentPage = page;
+                      passingPage = MyPage(currentPage);
+                      // Show list and pass page to its argument
+                    });
+                  },
+                  initialPage: 2,
                   items: buckets),
             ),
           ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10, bottom: 100),
-              child: TasksList(currentPage),
+              child: TasksList(passingPage),
             ),
           ),
         ],
