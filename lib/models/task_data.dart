@@ -9,6 +9,12 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Code'),
   ];
 
+  List<Task> _wealthList = [];
+  List<Task> _wisdomList = [];
+  List<Task> _loveList = [];
+  List<Task> _healthList = [];
+  List<Task> _happinessList = [];
+
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);
   }
@@ -17,9 +23,11 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
-  void addTask(String newTaskTitle) {
-    final task = Task(name: newTaskTitle);
-    _tasks.add(task);
+  void addTask(String newTaskTitle, List<Task> list) {
+    final task = Task(
+      name: newTaskTitle,
+    );
+    list.add(task);
     notifyListeners();
   }
 

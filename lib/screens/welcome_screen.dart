@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:horizontal_card_pager/card_item.dart';
 import 'package:horizontal_card_pager/horizontal_card_pager.dart';
@@ -55,6 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
+  Map<int, String> mapList = {
+    0: 'Wealth Land',
+    1: 'Wisdom Land',
+    2: 'Love Land',
+    3: 'Health Land',
+    4: 'Happiness Land',
+  };
 
   void _onItemTapped(int index) {
     setState(() {
@@ -188,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: HorizontalCardPager(
                   onPageChanged: (page) => print("page : $page"),
-                  onSelectedItem: (page) => print("selected : $page"),
+                  onSelectedItem: (page) => print("page : $page"),
                   initialPage: 0,
                   items: buckets),
             ),

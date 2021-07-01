@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 class Task {
   String name;
   bool isDone;
-  // String bucket; Add Later
 
   Task({this.name, this.isDone = false});
 
