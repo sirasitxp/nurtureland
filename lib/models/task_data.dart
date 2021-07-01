@@ -39,8 +39,18 @@ class TaskData extends ChangeNotifier {
     return UnmodifiableListView(happinessTask);
   }
 
-  int get taskCount {
-    return _tasks.length;
+  int taskCount(int currentPage) {
+    if (currentPage == 0) {
+      return _wealthList.length;
+    } else if (currentPage == 1) {
+      return _wisdomList.length;
+    } else if (currentPage == 2) {
+      return _loveList.length;
+    } else if (currentPage == 3) {
+      return _healthList.length;
+    } else {
+      return _happinessList.length;
+    }
   }
 
   void addTask(String newTaskTitle, int currentPage) {
