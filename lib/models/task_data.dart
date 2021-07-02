@@ -9,7 +9,11 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Code'),
   ];
 
-  List<Task> _wealthList = [];
+  List<Task> _wealthList = [
+    Task(name: 'Make money'),
+    Task(name: 'Read books'),
+    Task(name: 'Invest')
+  ];
   List<Task> _wisdomList = [];
   List<Task> _loveList = [];
   List<Task> _healthList = [];
@@ -39,35 +43,15 @@ class TaskData extends ChangeNotifier {
     return UnmodifiableListView(happinessTask);
   }
 
-  int taskCount(int currentPage) {
-    if (currentPage == 0) {
-      return _wealthList.length;
-    } else if (currentPage == 1) {
-      return _wisdomList.length;
-    } else if (currentPage == 2) {
-      return _loveList.length;
-    } else if (currentPage == 3) {
-      return _healthList.length;
-    } else {
-      return _happinessList.length;
-    }
+  int taskCount() {
+    return _tasks.length;
   }
 
-  void addTask(String newTaskTitle, int currentPage) {
+  void addTask(String newTaskTitle) {
     final task = Task(
       name: newTaskTitle,
     );
-    if (currentPage == 0) {
-      _wealthList.add(task);
-    } else if (currentPage == 1) {
-      _wisdomList.add(task);
-    } else if (currentPage == 2) {
-      _loveList.add(task);
-    } else if (currentPage == 3) {
-      _healthList.add(task);
-    } else {
-      _happinessList.add(task);
-    }
+    _tasks.add(task);
     notifyListeners();
   }
 

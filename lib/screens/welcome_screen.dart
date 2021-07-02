@@ -56,8 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
-  MyPage passingPage;
-  int currentPage = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -81,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 print(_textEditingController.text);
                 // TODO: Add NEW TASK
                 Provider.of<TaskData>(context, listen: false)
-                    .addTask(_textEditingController.text, currentPage);
+                    .addTask(_textEditingController.text);
                 Navigator.pop(context, 'Add');
               },
               child: const Text('Add')),
@@ -95,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     selectedMinute = Minutes(_minutes);
     _selectedIndex = widget.index;
-    passingPage = MyPage(currentPage);
   }
 
   @override
@@ -193,11 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: HorizontalCardPager(
                   onPageChanged: (page) => print("page : $page"),
                   onSelectedItem: (page) {
-                    setState(() {
-                      currentPage = page;
-                      passingPage = MyPage(currentPage);
-                      // Show list and pass page to its argument
-                    });
+                    print(page);
                   },
                   initialPage: 2,
                   items: buckets),
@@ -206,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 10, bottom: 100),
-              child: TasksList(passingPage),
+              child: TasksList(),
             ),
           ),
         ],
