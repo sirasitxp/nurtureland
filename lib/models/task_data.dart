@@ -14,37 +14,53 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Read books'),
     Task(name: 'Invest')
   ];
-  List<Task> _wisdomList = [];
-  List<Task> _loveList = [];
-  List<Task> _healthList = [];
-  List<Task> _happinessList = [];
+  List<Task> _wisdomList = [
+    Task(name: 'Learn to code'),
+    Task(name: 'Read books'),
+    Task(name: 'Apply what you learned')
+  ];
+  List<Task> _loveList = [
+    Task(name: 'Spend more time together'),
+    Task(name: 'Call Dad and Mom'),
+    Task(name: 'Play game with friends')
+  ];
+  List<Task> _healthList = [
+    Task(name: 'Exercise'),
+    Task(name: 'Sleep early'),
+    Task(name: 'Drink water')
+  ];
+  List<Task> _happinessList = [
+    Task(name: 'Play guitar'),
+    Task(name: 'Go to Yosemite'),
+    Task(name: 'Learn how to cook')
+  ];
 
   UnmodifiableListView<Task> get tasks {
     return UnmodifiableListView(_tasks);
   }
 
   UnmodifiableListView<Task> get wealthTask {
-    return UnmodifiableListView(wealthTask);
+    return UnmodifiableListView(_wealthList);
   }
 
   UnmodifiableListView<Task> get wisdomTask {
-    return UnmodifiableListView(wisdomTask);
+    return UnmodifiableListView(_wisdomList);
   }
 
   UnmodifiableListView<Task> get loveTask {
-    return UnmodifiableListView(loveTask);
+    return UnmodifiableListView(_loveList);
   }
 
   UnmodifiableListView<Task> get healthTask {
-    return UnmodifiableListView(healthTask);
+    return UnmodifiableListView(_healthList);
   }
 
   UnmodifiableListView<Task> get happinessTask {
-    return UnmodifiableListView(happinessTask);
+    return UnmodifiableListView(_happinessList);
   }
 
-  int taskCount() {
-    return _tasks.length;
+  int taskCount(List<Task> currentList) {
+    return currentList.length;
   }
 
   void addTask(String newTaskTitle) {

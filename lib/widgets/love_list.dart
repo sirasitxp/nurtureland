@@ -3,19 +3,19 @@ import 'package:nurtureland/widgets/tasks_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
 
-class TasksList extends StatefulWidget {
+class LoveList extends StatefulWidget {
   @override
-  _TasksListState createState() => _TasksListState();
+  _LoveListState createState() => _LoveListState();
 }
 
-class _TasksListState extends State<TasksList> {
+class _LoveListState extends State<LoveList> {
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(
       builder: (context, taskData, child) {
         return ListView.builder(
           itemBuilder: (context, index) {
-            final task = taskData.tasks[index];
+            final task = taskData.loveTask[index];
             return Dismissible(
               background: Container(
                 color: Colors.red,
@@ -51,7 +51,7 @@ class _TasksListState extends State<TasksList> {
               ),
             );
           },
-          itemCount: taskData.taskCount(taskData.tasks),
+          itemCount: taskData.taskCount(taskData.loveTask),
         );
       },
     );

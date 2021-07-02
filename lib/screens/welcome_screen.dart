@@ -7,10 +7,14 @@ import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:nurtureland/Models/minutes.dart';
 import 'package:nurtureland/widgets/tasks_list.dart';
 import 'package:flutter_cube/flutter_cube.dart';
+import 'package:nurtureland/widgets/wealth_list.dart';
+import 'package:nurtureland/widgets/wisdom_list.dart';
+import 'package:nurtureland/widgets/love_list.dart';
+import 'package:nurtureland/widgets/health_list.dart';
+import 'package:nurtureland/widgets/happiness_list.dart';
 import 'package:provider/provider.dart';
 import 'package:nurtureland/models/task_data.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
-import 'package:nurtureland/models/mypage.dart';
 
 class MyHomePage extends StatefulWidget {
   int index;
@@ -56,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex;
   var f = NumberFormat("00");
   final _textEditingController = TextEditingController();
+  int currentPage;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -182,24 +187,46 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ]),
-          SizedBox(
-            height: 100,
-            width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
-              child: HorizontalCardPager(
-                  onPageChanged: (page) => print("page : $page"),
-                  onSelectedItem: (page) {
-                    print(page);
-                  },
-                  initialPage: 2,
-                  items: buckets),
-            ),
-          ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10, bottom: 100),
-              child: TasksList(),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 10, right: 10),
+                    child: HorizontalCardPager(
+                        onPageChanged: (page) {
+                          setState(() {
+                            currentPage = page.toInt();
+                          });
+                        },
+                        onSelectedItem: (page) {
+                          print(page);
+                        },
+                        initialPage: 2,
+                        items: buckets),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10, bottom: 100),
+                    child: (currentPage == 0)
+                        ? WealthList()
+                        : (currentPage == 1)
+                            ? WisdomList()
+                            : (currentPage == 2)
+                                ? LoveList()
+                                : (currentPage == 3)
+                                    ? HealthList()
+                                    : (currentPage == 4)
+                                        ? HappinessList()
+                                        : Text(
+                                            "Tap the bucket to show your todos"),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
