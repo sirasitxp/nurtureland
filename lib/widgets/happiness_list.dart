@@ -40,7 +40,7 @@ class _HappinessListState extends State<HappinessList> {
               key: Key(task.name),
               onDismissed: (direction) {
                 // Remove the item from the data source.
-                taskData.deleteTask(task);
+                taskData.deleteHappinessTask(task);
               },
               child: TaskTile(
                 taskTitle: task.name,

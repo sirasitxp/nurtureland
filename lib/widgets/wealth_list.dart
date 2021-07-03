@@ -40,7 +40,7 @@ class _WealthListState extends State<WealthList> {
               key: Key(task.name),
               onDismissed: (direction) {
                 // Remove the item from the data source.
-                taskData.deleteTask(task);
+                taskData.deleteWealthTask(task);
               },
               child: TaskTile(
                 taskTitle: task.name,

@@ -40,7 +40,7 @@ class _WisdomListState extends State<WisdomList> {
               key: Key(task.name),
               onDismissed: (direction) {
                 // Remove the item from the data source.
-                taskData.deleteTask(task);
+                taskData.deleteWisdomTask(task);
               },
               child: TaskTile(
                 taskTitle: task.name,

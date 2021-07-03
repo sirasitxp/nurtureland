@@ -40,7 +40,7 @@ class _HealthListState extends State<HealthList> {
               key: Key(task.name),
               onDismissed: (direction) {
                 // Remove the item from the data source.
-                taskData.deleteTask(task);
+                taskData.deleteHealthTask(task);
               },
               child: TaskTile(
                 taskTitle: task.name,

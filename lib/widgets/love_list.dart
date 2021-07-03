@@ -40,7 +40,7 @@ class _LoveListState extends State<LoveList> {
               key: Key(task.name),
               onDismissed: (direction) {
                 // Remove the item from the data source.
-                taskData.deleteTask(task);
+                taskData.deleteLoveTask(task);
               },
               child: TaskTile(
                 taskTitle: task.name,

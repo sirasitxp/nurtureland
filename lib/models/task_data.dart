@@ -63,11 +63,21 @@ class TaskData extends ChangeNotifier {
     return currentList.length;
   }
 
-  void addTask(String newTaskTitle) {
+  void addTask(String newTaskTitle, int currentPage) {
     final task = Task(
       name: newTaskTitle,
     );
-    _tasks.add(task);
+    if (currentPage == 0) {
+      _wealthList.add(task);
+    } else if (currentPage == 1) {
+      _wisdomList.add(task);
+    } else if (currentPage == 2) {
+      _loveList.add(task);
+    } else if (currentPage == 3) {
+      _healthList.add(task);
+    } else {
+      _happinessList.add(task);
+    }
     notifyListeners();
   }
 
@@ -78,6 +88,31 @@ class TaskData extends ChangeNotifier {
 
   void deleteTask(Task task) {
     _tasks.remove(task);
+    notifyListeners();
+  }
+
+  void deleteWealthTask(Task task) {
+    _wealthList.remove(task);
+    notifyListeners();
+  }
+
+  void deleteWisdomTask(Task task) {
+    _wisdomList.remove(task);
+    notifyListeners();
+  }
+
+  void deleteLoveTask(Task task) {
+    _loveList.remove(task);
+    notifyListeners();
+  }
+
+  void deleteHealthTask(Task task) {
+    _healthList.remove(task);
+    notifyListeners();
+  }
+
+  void deleteHappinessTask(Task task) {
+    _happinessList.remove(task);
     notifyListeners();
   }
 }

@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 print(_textEditingController.text);
                 // TODO: Add NEW TASK
                 Provider.of<TaskData>(context, listen: false)
-                    .addTask(_textEditingController.text);
+                    .addTask(_textEditingController.text, currentPage);
                 Navigator.pop(context, 'Add');
               },
               child: const Text('Add')),
