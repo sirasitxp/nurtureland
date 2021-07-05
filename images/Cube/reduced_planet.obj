@@ -1,6 +1,6 @@
 # Blender v2.93.0 OBJ File: ''
 # www.blender.org
-mtllib reduced_planet.mtl
+mtllib /reduced_planet.mtl
 o water_2_Mesh.994
 v -0.509280 0.883834 0.133219
 v -0.280453 0.979264 0.070785
