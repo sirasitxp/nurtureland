@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd Water.jpeg
+map_Kd /Water.jpeg
 
 
 newmtl World_ap
@@ -22,4 +22,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd World_Map_Colors.jpeg
+map_Kd /World_Map_Colors.jpeg
