@@ -32,7 +32,7 @@ dependencies:
   flutter_circular_slider: ^2.5.0
   circular_countdown_timer: ^0.1.0
   flutter_icons: ^1.1.0
-  flutter_cube: ^0.0.6
+  flutter_cube: ^0.1.1
   horizontal_card_pager: ^1.0.3
   scroll_snap_list: ^0.6.0
   roundcheckbox: ^2.0.1

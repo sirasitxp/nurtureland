@@ -250,7 +250,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Cube(
           onSceneCreated: (Scene scene) {
             Object farm = Object(
-              fileName: 'images/Cube/reduced_planet.obj',
+              fileName: 'images/Cube/test.obj',
               scale: Vector3(
                 5.0,
                 5.0,
