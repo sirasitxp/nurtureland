@@ -260,14 +260,22 @@ class _MyHomePageState extends State<MyHomePage> {
             Object tree = Object(
               fileName: 'images/Cube/tree.obj',
               scale: Vector3(
-                5.0,
-                5.0,
-                5.0,
+                4.0,
+                4.0,
+                4.0,
               ),
+              position: Vector3(
+                0.45,
+                -1.0,
+                0.0,
+              ),
+              rotation: Vector3(
+                  2.0,
+                  0.0, // Position
+                  2.0),
             );
             List<Object> trees = [tree];
             scene.world.children = trees;
-            scene.world.parent = farm;
             scene.world.add(farm);
           },
         ),
