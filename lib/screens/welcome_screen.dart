@@ -258,14 +258,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
             Object tree = Object(
-              fileName: 'images/Cube/tree.obj',
+              fileName: 'images/Cube/tree_tinted.obj',
               scale: Vector3(
                 4.0,
                 4.0,
                 4.0,
               ),
               position: Vector3(
-                0.45,
+                0.5,
                 -1.0,
                 0.0,
               ),
