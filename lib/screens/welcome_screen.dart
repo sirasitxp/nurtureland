@@ -257,6 +257,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 5.0,
               ),
             );
+            Object tree = Object(
+              fileName: 'images/Cube/tree.obj',
+              scale: Vector3(
+                5.0,
+                5.0,
+                5.0,
+              ),
+            );
+            List<Object> trees = [tree];
+            scene.world.children = trees;
+            scene.world.parent = farm;
             scene.world.add(farm);
           },
         ),
