@@ -251,37 +251,60 @@ class _MyHomePageState extends State<MyHomePage> {
             tileMode: TileMode.clamp),
       ),
       child: Center(
-        child: Cube(
-          onSceneCreated: (Scene scene) {
-            Object land = Object(
-              fileName: 'images/Cube/test.obj',
-              scale: Vector3(
-                5.0,
-                5.0,
-                5.0,
-              ),
-            );
-            Object tree = Object(
-              fileName: 'images/Cube/pine_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              position: Vector3(
-                2.2,
-                -1.3,
-                1.0,
-              ),
-              rotation: Vector3(
-                  -10.0,
-                  2.0, // Position
-                  2.0),
-            );
-            List<Object> trees = [tree];
-            scene.world.children = trees;
-            scene.world.add(land);
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            print("Test");
           },
+          child: Cube(
+            onSceneCreated: (Scene scene) {
+              Object land = Object(
+                fileName: 'images/Cube/test.obj',
+                scale: Vector3(
+                  5.0,
+                  5.0,
+                  5.0,
+                ),
+              );
+              Object tree = Object(
+                fileName: 'images/Cube/pine_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                position: Vector3(
+                  2.2,
+                  -1.3,
+                  1.0,
+                ),
+                rotation: Vector3(
+                    -10.0,
+                    2.0, // Position
+                    2.0),
+              );
+              Object tree2 = Object(
+                fileName: 'images/Cube/pine_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                position: Vector3(
+                  2.2,
+                  0.8,
+                  1.4,
+                ),
+                rotation: Vector3(
+                    -15.0,
+                    2.0, // Position
+                    2.0),
+              );
+              List<Object> trees = [tree, tree2];
+              scene.world.children = trees;
+              scene.world.add(land);
+            },
+          ),
         ),
       ),
     );
