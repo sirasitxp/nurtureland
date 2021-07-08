@@ -68,6 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Vector3 showCurrentAxis(Object currentObject) {
+    return currentObject.position;
+  }
+
   void addTodo() {
     //  Add Todo list
     showDialog<String>(
@@ -249,7 +253,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Center(
         child: Cube(
           onSceneCreated: (Scene scene) {
-            Object farm = Object(
+            Object land = Object(
               fileName: 'images/Cube/test.obj',
               scale: Vector3(
                 5.0,
@@ -276,7 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
             );
             List<Object> trees = [tree];
             scene.world.children = trees;
-            scene.world.add(farm);
+            scene.world.add(land);
           },
         ),
       ),
