@@ -16,4 +16,5 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Todo
-[] Learn 3d File
+[X] Learn 3d File
+[] Make Landing Page and Proposols
