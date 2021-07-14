@@ -317,7 +317,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     2.0, // Position
                     2.0),
               );
-              List<Object> trees = [desert_tree, tree2, snow_tree];
+              Object land_tree = Object(
+                fileName: 'images/Cube/pine_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                position: Vector3(
+                  1.6,
+                  0.8,
+                  1.9,
+                ),
+                rotation: Vector3(
+                    -15.0,
+                    2.0, // Position
+                    2.0),
+              );
+              List<Object> trees = [desert_tree, tree2, snow_tree, land_tree];
               scene.world.children = trees;
               scene.world.add(land);
             },
