@@ -39,6 +39,8 @@ dependencies:
   image_sequence_animator: ^2.0.0
   provider: ^5.0.0
   fluttericon: ^2.0.0
+  flutter_local_notifications: ^6.0.0
+
 
 
 
