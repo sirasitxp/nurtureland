@@ -9,4 +9,7 @@ class NotificationService {
   }
 
   NotificationService._internal();
+
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 }
