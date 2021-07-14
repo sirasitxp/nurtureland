@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:horizontal_card_pager/card_item.dart';
 import 'package:horizontal_card_pager/horizontal_card_pager.dart';
 import 'package:intl/intl.dart';
+import 'package:nurtureland/main.dart';
 import 'package:nurtureland/screens/timer_screen.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:nurtureland/Models/minutes.dart';
@@ -102,6 +104,36 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     selectedMinute = Minutes(_minutes);
     _selectedIndex = widget.index;
+  }
+
+  void setNotification() async {
+    var scheduleNotificationDateTime =
+        DateTime.now().add(Duration(seconds: _minutes * 60));
+
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'alarm_notif',
+      'alarm_notif',
+      'Channel for Alarm Notification',
+      icon: 'ic_launcher',
+      largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
+    );
+
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+
+    var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+    await flutterLocalNotificationsPlugin.schedule(
+        0,
+        'Timer Complete',
+        'Good Job! You are getting closer to your goals',
+        scheduleNotificationDateTime,
+        platformChannelSpecifics);
   }
 
   @override
@@ -399,6 +431,8 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               RaisedButton(
                 onPressed: () {
+                  // Set notification
+                  setNotification();
 //                    Navigate to next screen
                   Navigator.push(
                     context,
