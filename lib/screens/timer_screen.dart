@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nurtureland/Models/minutes.dart';
 import 'package:image_sequence_animator/image_sequence_animator.dart';
 import 'package:nurtureland/screens/welcome_screen.dart';
+import 'package:adaptive_dialog/adaptive_dialog.dart';
 
 class TimerScreen extends StatefulWidget {
   Minutes passedData;
@@ -88,6 +89,22 @@ class _TimerScreenState extends State<TimerScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => MyHomePage(2)),
+                    // Add Popup here
+                  );
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Session Complete'),
+                      content: Text(
+                          'You have grown 1 tree'), // May be show a picture of your tree here
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Add')),
+                      ],
+                    ),
                   );
                 },
               ),
