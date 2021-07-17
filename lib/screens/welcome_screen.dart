@@ -374,9 +374,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   5.0,
                 ),
                 position: Vector3(
-                  1.1,
-                  0.8,
-                  1.9,
+                  -2.9,
+                  -2.7,
+                  -1.0,
                 ),
                 rotation: Vector3(
                     -15.0,
