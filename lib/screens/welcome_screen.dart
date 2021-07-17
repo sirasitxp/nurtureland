@@ -366,8 +366,33 @@ class _MyHomePageState extends State<MyHomePage> {
                     2.0, // Position
                     2.0),
               );
-              List<Object> trees = [desert_tree, tree2, snow_tree, land_tree];
+              Object new_tree = Object(
+                fileName: 'images/Cube/tree_tinted.obj',
+                scale: Vector3(
+                  5.0,
+                  5.0,
+                  5.0,
+                ),
+                position: Vector3(
+                  1.1,
+                  0.8,
+                  1.9,
+                ),
+                rotation: Vector3(
+                    -15.0,
+                    2.0, // Position
+                    2.0),
+              );
+
+              List<Object> trees = [
+                desert_tree,
+                tree2,
+                snow_tree,
+                land_tree,
+                new_tree
+              ];
               scene.world.children = trees;
+              scene.camera.zoom = 1.25;
               scene.world.add(land);
             },
           ),
