@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nurtureland/Models/minutes.dart';
 import 'package:image_sequence_animator/image_sequence_animator.dart';
 import 'package:nurtureland/screens/welcome_screen.dart';
-import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:nurtureland/main.dart';
 
 class TimerScreen extends StatefulWidget {
   Minutes passedData;
@@ -27,6 +28,35 @@ class _TimerScreenState extends State<TimerScreen> {
     _minutes = selectedMinute.workingTime;
     _seconds = _minutes * 60;
     _controller = CountDownController();
+  }
+
+  void setNotification() async {
+    var scheduleNotificationDateTime = DateTime.now().add(Duration(seconds: 0));
+
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'alarm_notif',
+      'alarm_notif',
+      'Channel for Alarm Notification',
+      icon: 'ic_launcher',
+      largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
+    );
+
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+
+    var platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+    await flutterLocalNotificationsPlugin.schedule(
+        0,
+        'Timer Complete',
+        'Good Job! You are getting closer to your goals',
+        scheduleNotificationDateTime,
+        platformChannelSpecifics);
   }
 
   @override
@@ -85,6 +115,8 @@ class _TimerScreenState extends State<TimerScreen> {
                   print('Countdown Started');
                 },
                 onComplete: () {
+                  // set Notification here
+                  setNotification();
                   print('Countdown Ended');
                   Navigator.push(
                     context,

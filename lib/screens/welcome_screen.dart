@@ -106,36 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _selectedIndex = widget.index;
   }
 
-  void setNotification() async {
-    var scheduleNotificationDateTime =
-        DateTime.now().add(Duration(seconds: _minutes * 60));
-
-    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'alarm_notif',
-      'alarm_notif',
-      'Channel for Alarm Notification',
-      icon: 'ic_launcher',
-      largeIcon: DrawableResourceAndroidBitmap('ic_launcher'),
-    );
-
-    var iOSPlatformChannelSpecifics = IOSNotificationDetails(
-      presentAlert: true,
-      presentBadge: true,
-      presentSound: true,
-    );
-
-    var platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
-    );
-    await flutterLocalNotificationsPlugin.schedule(
-        0,
-        'Timer Complete',
-        'Good Job! You are getting closer to your goals',
-        scheduleNotificationDateTime,
-        platformChannelSpecifics);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -456,8 +426,6 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               RaisedButton(
                 onPressed: () {
-                  // Set notification
-                  setNotification();
 //                    Navigate to next screen
                   Navigator.push(
                     context,
