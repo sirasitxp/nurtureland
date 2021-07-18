@@ -374,14 +374,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   5.0,
                 ),
                 position: Vector3(
-                  -2.9,
-                  -2.7,
-                  -1.0,
+                  -3.1,
+                  -2.3,
+                  -1.75,
                 ),
                 rotation: Vector3(
-                    -15.0,
+                    -30.0,
                     2.0, // Position
-                    2.0),
+                    10.0),
               );
 
               List<Object> trees = [
