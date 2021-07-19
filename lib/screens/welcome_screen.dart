@@ -349,7 +349,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 rotation: Vector3(
                     -30.0,
-                    2.0, // Position
+                    3.0, // Position
                     10.0),
               );
 
@@ -360,8 +360,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 land_tree,
                 new_tree
               ];
+
               scene.world.children = trees;
-              scene.camera.zoom = 1.25;
+              scene.camera.zoom = 1;
               scene.world.add(land);
             },
           ),
