@@ -390,6 +390,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   -2.2, // - Out, + In
                 ),
               );
+              Object crooked_tree = Object(
+                fileName: 'images/Cube/crooked_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                rotation: Vector3(
+                  -80, // Up and Down
+                  30, //  + Left, - Right
+                  10,
+                ),
+                position: Vector3(
+                  -3.0, //  - Right, + Left
+                  0,
+                  -2.2, // - Out, + In
+                ),
+              );
               List<Object> trees = [
                 desert_tree,
                 tree2,
@@ -397,11 +415,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 land_tree,
                 new_tree,
                 palm_tree,
-                palm_tree_dessert
+                palm_tree_dessert,
+                crooked_tree
               ];
 
               scene.world.children = trees;
-              scene.camera.zoom = 1;
               scene.world.add(land);
             },
           ),
