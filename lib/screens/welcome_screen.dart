@@ -353,12 +353,51 @@ class _MyHomePageState extends State<MyHomePage> {
                     10.0),
               );
 
+              Object palm_tree = Object(
+                fileName: 'images/Cube/palm_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                rotation: Vector3(
+                  -100,
+                  10,
+                  10,
+                ),
+                position: Vector3(
+                  0,
+                  0,
+                  -3.8, // How Close (z)
+                ),
+              );
+
+              Object palm_tree_dessert = Object(
+                fileName: 'images/Cube/palm_tree.obj',
+                scale: Vector3(
+                  1.0,
+                  1.0,
+                  1.0,
+                ),
+                rotation: Vector3(
+                  -80, // Up and Down
+                  30, //  + Left, - Right
+                  10,
+                ),
+                position: Vector3(
+                  -3.0, //  - Right, + Left
+                  0,
+                  -2.2, // - Out, + In
+                ),
+              );
               List<Object> trees = [
                 desert_tree,
                 tree2,
                 snow_tree,
                 land_tree,
-                new_tree
+                new_tree,
+                palm_tree,
+                palm_tree_dessert
               ];
 
               scene.world.children = trees;
