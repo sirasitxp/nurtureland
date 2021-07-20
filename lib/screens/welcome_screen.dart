@@ -400,12 +400,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 rotation: Vector3(
                   -80, // Up and Down
                   30, //  + Left, - Right
-                  10,
+                  50, // Bending left and right
                 ),
                 position: Vector3(
-                  -3.0, //  - Right, + Left
+                  -2.4, //  - Out, + In
                   0,
-                  -2.2, // - Out, + In
+                  -0.2, // + Right, - Left
                 ),
               );
               List<Object> trees = [
