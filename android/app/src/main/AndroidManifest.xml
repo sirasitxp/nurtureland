@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sirux.nurtureland">
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
    <application
+       
         android:label="nurtureland"
         android:icon="@mipmap/ic_launcher">
         <activity
