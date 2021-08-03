@@ -256,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       child: Center(
         child: WebView(
-          initialUrl: 'https://demos.littleworkshop.fr/infinitown',
+          initialUrl: 'https://www.nurtureland.io',
           javascriptMode:
               JavascriptMode.unrestricted, // Made the web work with this
         ),
