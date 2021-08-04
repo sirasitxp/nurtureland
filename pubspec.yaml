@@ -40,6 +40,8 @@ dependencies:
   fluttericon: ^2.0.0
   flutter_local_notifications: ^6.0.0
   webview_flutter: ^2.0.10
+  sqflite: ^2.0.0+3
+
 
 
 
