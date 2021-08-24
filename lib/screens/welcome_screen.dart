@@ -391,9 +391,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Object crooked_tree = Object(
               fileName: 'images/Cube/crooked_tree.obj',
               scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
+                0.75,
+                0.75,
+                0.75,
               ),
               rotation: Vector3(
                 -80, // Up and Down
