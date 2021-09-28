@@ -8,7 +8,7 @@
 ✔️ Todo-list to keep things organized. <br>
 🌲 3D farmland to visualize your progress in different areas(lands) of your life. <br>
 
-## Concept used
+## Concepts used
 
 
 
