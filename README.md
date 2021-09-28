@@ -1,6 +1,8 @@
-# 🏞️ Nurtureland.io 🌎
+# 🏞️ Nurtureland.io 🌎 [Work in progress]
 
 🏁 Nurtureland.io is a productivity app to keep you focus on your life journey. 🏃‍♂️
+
+##  
 
 ## Features
 
@@ -12,3 +14,5 @@
 
 
 
+
+Credit for the 3D farmland example: https://www.littleworkshop.fr/ 
