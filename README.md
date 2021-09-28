@@ -1,6 +1,6 @@
-# nurtureland
+# Nurtureland.io 🌎
 
-A new Flutter application.
+🏁 Nurtureland.io is a productivity app to keep you focus on your life journey. 🏃‍♂️
 
 ## Getting Started
 
