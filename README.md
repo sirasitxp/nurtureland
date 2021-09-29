@@ -3,8 +3,9 @@
 🏁 Nurtureland.io is a productivity app to keep you focus on your life journey. 🏃‍♂️
 
 ## Demo
-
-![](https://im3.ezgif.com/tmp/ezgif-3-912d6ec8ce8b.gif)
+![1](https://im3.ezgif.com/tmp/ezgif-3-5b768819b79d.gif)
+![2](https://im3.ezgif.com/tmp/ezgif-3-5b768819b79d.gif)
+![3](https://im3.ezgif.com/tmp/ezgif-3-fa21099b2877.gif)
 
 
 
