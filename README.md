@@ -4,9 +4,9 @@
 
 ## Demo
 ### Todo-list
-![1](https://im3.ezgif.com/tmp/ezgif-3-5e13271548e6.gif)
+![1](https://github.com/hisnameispum/nurtureland/blob/master/todo.gif)
 ### Pomodoro Timer
-![2](https://im3.ezgif.com/tmp/ezgif-3-5b768819b79d.gif)
+![2](https://github.com/hisnameispum/nurtureland/blob/master/timer.gif)
 ### Digital Farmland
 ![3](https://raw.githubusercontent.com/hisnameispum/nurtureland/master/farmland.gif)
 
