@@ -1,27 +1,28 @@
-# nurtureland
+# 🏞️ Nurtureland.io 🌎 [Work in progress]
 
-A new Flutter application.
+🏁 Nurtureland.io is a productivity app to keep you focus on your life journey. 🏃‍♂️
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Todo
-[X] Learn 3d File <br>
+## Demo
+### Todo-list
+![1](https://github.com/hisnameispum/nurtureland/blob/master/todo.gif)
+### Pomodoro Timer
+![2](https://github.com/hisnameispum/nurtureland/blob/master/timer.gif)
+### Digital Farmland
+![3](https://raw.githubusercontent.com/hisnameispum/nurtureland/master/farmland.gif)
 
 
-## Three.JS
-[X] Learn Webpack <br>
-[X] Learn about Transformation
 
-# Sqflite
+## Features
 
+⏲️ Pomodoro Timer for deep work sessions. <br>
+✔️ Todo-list to keep things organized. <br>
+🌲 3D farmland to visualize your progress in different areas(lands) of your life. <br>
+
+## Concepts used
+
+📝 Provider State Management
+
+
+
+
+Credit for the 3D farmland example: https://www.littleworkshop.fr/ 
