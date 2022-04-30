@@ -1,6 +1,6 @@
 # 🏞️ Nurtureland.io 🌎 [Work in progress]
 
-🏁 Nurtureland.io is a productivity app to keep you focus on your life journey. 🏃‍♂️
+🏁 Nurtureland.io is a productivity app to keep you focus on your life's journey. 🏃‍♂️
 
 ## Demo
 ### Todo-list
