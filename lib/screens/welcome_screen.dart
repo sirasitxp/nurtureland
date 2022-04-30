@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.format_list_bulleted),
+                  // Icon(Icons.format_list_bulleted),
                   SizedBox(
                     height: 10,
                     width: double.infinity,
@@ -184,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 30, bottom: 30),
                     child: Text(
-                      "Goal: Get Things Done.",
+                      "Get Things Will Come.",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
@@ -255,171 +255,176 @@ class _MyHomePageState extends State<MyHomePage> {
             tileMode: TileMode.clamp),
       ),
       child: Center(
-        child: Cube(
-          onSceneCreated: (Scene scene) {
-            Object land = Object(
-              fileName: 'images/Cube/test.obj',
-              scale: Vector3(
-                5.0,
-                5.0,
-                5.0,
-              ),
-            );
-            Object desert_tree = Object(
-              fileName: 'images/Cube/pine_tree.obj',
-              scale: Vector3(
-                1,
-                1,
-                1,
-              ),
-              position: Vector3(
-                2.2,
-                -1.3,
-                1.0,
-              ),
-              rotation: Vector3(
-                  -10.0,
-                  2.0, // Position
-                  2.0),
-            );
-            Object tree2 = Object(
-              fileName: 'images/Cube/pine_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              position: Vector3(
-                2.2,
-                0.8,
-                1.4,
-              ),
-              rotation: Vector3(
-                  -15.0,
-                  2.0, // Position
-                  2.0),
-            );
-            Object snow_tree = Object(
-              fileName: 'images/Cube/pine_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              position: Vector3(
-                1.2,
-                1.7,
-                1.4,
-              ),
-              rotation: Vector3(
-                  -15.0,
-                  2.0, // Position
-                  2.0),
-            );
-            Object land_tree = Object(
-              fileName: 'images/Cube/pine_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              position: Vector3(
-                1.6,
-                0.8,
-                1.9,
-              ),
-              rotation: Vector3(
-                  -15.0,
-                  2.0, // Position
-                  2.0),
-            );
-            Object new_tree = Object(
-              fileName: 'images/Cube/tree_tinted.obj',
-              scale: Vector3(
-                5.0,
-                5.0,
-                5.0,
-              ),
-              position: Vector3(
-                -3.1,
-                -2.3,
-                -1.75,
-              ),
-              rotation: Vector3(
-                  -30.0,
-                  3.0, // Position
-                  10.0),
-            );
-
-            Object palm_tree = Object(
-              fileName: 'images/Cube/palm_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              rotation: Vector3(
-                -100,
-                10,
-                10,
-              ),
-              position: Vector3(
-                0,
-                0,
-                -3.8, // How Close (z)
-              ),
-            );
-
-            Object palm_tree_dessert = Object(
-              fileName: 'images/Cube/palm_tree.obj',
-              scale: Vector3(
-                1.0,
-                1.0,
-                1.0,
-              ),
-              rotation: Vector3(
-                -80, // Up and Down
-                30, //  + Left, - Right
-                10,
-              ),
-              position: Vector3(
-                -3.0, //  - Right, + Left
-                0,
-                -2.2, // - Out, + In
-              ),
-            );
-            Object crooked_tree = Object(
-              fileName: 'images/Cube/crooked_tree.obj',
-              scale: Vector3(
-                0.75,
-                0.75,
-                0.75,
-              ),
-              rotation: Vector3(
-                -80, // Up and Down
-                30, //  + Left, - Right
-                50, // Bending left and right
-              ),
-              position: Vector3(
-                -2.4, //  - Out, + In
-                0,
-                -0.2, // + Right, - Left
-              ),
-            );
-            List<Object> trees = [
-              desert_tree,
-              tree2,
-              snow_tree,
-              land_tree,
-              new_tree,
-              palm_tree,
-              palm_tree_dessert,
-              crooked_tree,
-            ];
-            scene.world.children = trees;
-            scene.world.add(land);
-          },
+        child: WebView(
+          initialUrl: 'https://demos.littleworkshop.fr/infinitown',
+          javascriptMode:
+              JavascriptMode.unrestricted, // Made the web work with this
         ),
+        // child: Cube(
+        //   onSceneCreated: (Scene scene) {
+        //     Object land = Object(
+        //       fileName: 'images/Cube/test.obj',
+        //       scale: Vector3(
+        //         5.0,
+        //         5.0,
+        //         5.0,
+        //       ),
+        //     );
+        //     Object desert_tree = Object(
+        //       fileName: 'images/Cube/pine_tree.obj',
+        //       scale: Vector3(
+        //         1,
+        //         1,
+        //         1,
+        //       ),
+        //       position: Vector3(
+        //         2.2,
+        //         -1.3,
+        //         1.0,
+        //       ),
+        //       rotation: Vector3(
+        //           -10.0,
+        //           2.0, // Position
+        //           2.0),
+        //     );
+        //     Object tree2 = Object(
+        //       fileName: 'images/Cube/pine_tree.obj',
+        //       scale: Vector3(
+        //         1.0,
+        //         1.0,
+        //         1.0,
+        //       ),
+        //       position: Vector3(
+        //         2.2,
+        //         0.8,
+        //         1.4,
+        //       ),
+        //       rotation: Vector3(
+        //           -15.0,
+        //           2.0, // Position
+        //           2.0),
+        //     );
+        //     Object snow_tree = Object(
+        //       fileName: 'images/Cube/pine_tree.obj',
+        //       scale: Vector3(
+        //         1.0,
+        //         1.0,
+        //         1.0,
+        //       ),
+        //       position: Vector3(
+        //         1.2,
+        //         1.7,
+        //         1.4,
+        //       ),
+        //       rotation: Vector3(
+        //           -15.0,
+        //           2.0, // Position
+        //           2.0),
+        //     );
+        //     Object land_tree = Object(
+        //       fileName: 'images/Cube/pine_tree.obj',
+        //       scale: Vector3(
+        //         1.0,
+        //         1.0,
+        //         1.0,
+        //       ),
+        //       position: Vector3(
+        //         1.6,
+        //         0.8,
+        //         1.9,
+        //       ),
+        //       rotation: Vector3(
+        //           -15.0,
+        //           2.0, // Position
+        //           2.0),
+        //     );
+        //     Object new_tree = Object(
+        //       fileName: 'images/Cube/tree_tinted.obj',
+        //       scale: Vector3(
+        //         5.0,
+        //         5.0,
+        //         5.0,
+        //       ),
+        //       position: Vector3(
+        //         -3.1,
+        //         -2.3,
+        //         -1.75,
+        //       ),
+        //       rotation: Vector3(
+        //           -30.0,
+        //           3.0, // Position
+        //           10.0),
+        //     );
+        //
+        //     Object palm_tree = Object(
+        //       fileName: 'images/Cube/palm_tree.obj',
+        //       scale: Vector3(
+        //         1.0,
+        //         1.0,
+        //         1.0,
+        //       ),
+        //       rotation: Vector3(
+        //         -100,
+        //         10,
+        //         10,
+        //       ),
+        //       position: Vector3(
+        //         0,
+        //         0,
+        //         -3.8, // How Close (z)
+        //       ),
+        //     );
+        //
+        //     Object palm_tree_dessert = Object(
+        //       fileName: 'images/Cube/palm_tree.obj',
+        //       scale: Vector3(
+        //         1.0,
+        //         1.0,
+        //         1.0,
+        //       ),
+        //       rotation: Vector3(
+        //         -80, // Up and Down
+        //         30, //  + Left, - Right
+        //         10,
+        //       ),
+        //       position: Vector3(
+        //         -3.0, //  - Right, + Left
+        //         0,
+        //         -2.2, // - Out, + In
+        //       ),
+        //     );
+        //     Object crooked_tree = Object(
+        //       fileName: 'images/Cube/crooked_tree.obj',
+        //       scale: Vector3(
+        //         0.75,
+        //         0.75,
+        //         0.75,
+        //       ),
+        //       rotation: Vector3(
+        //         -80, // Up and Down
+        //         30, //  + Left, - Right
+        //         50, // Bending left and right
+        //       ),
+        //       position: Vector3(
+        //         -2.4, //  - Out, + In
+        //         0,
+        //         -0.2, // + Right, - Left
+        //       ),
+        //     );
+        //     List<Object> trees = [
+        //       desert_tree,
+        //       tree2,
+        //       snow_tree,
+        //       land_tree,
+        //       new_tree,
+        //       palm_tree,
+        //       palm_tree_dessert,
+        //       crooked_tree,
+        //     ];
+        //     scene.world.children = trees;
+        //     scene.world.add(land);
+        //   },
+        // ),
       ),
     );
   }
@@ -480,6 +485,7 @@ class _MyHomePageState extends State<MyHomePage> {
               RaisedButton(
                 onPressed: () {
 //                    Navigate to next screen
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

@@ -59,6 +59,32 @@ class _TimerScreenState extends State<TimerScreen> {
         platformChannelSpecifics);
   }
 
+  void cancel_timer() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Do you want to give up?'),
+        content: Text(
+            'Breaking the session would kill your current progress.'), // May be show a picture of your tree here
+        actions: [
+          TextButton(
+              onPressed: () {
+                print("Countdown Stopped");
+                _controller.pause();
+                Navigator.pop(context);
+                Navigator.pop(context);
+              },
+              child: const Text('Give up')),
+          TextButton(
+              onPressed: () {
+                Navigator.pop(context, 'Cancel');
+              },
+              child: const Text('Dismiss')),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +102,7 @@ class _TimerScreenState extends State<TimerScreen> {
           ),
         ),
         onPressed: () {
-          Navigator.pop(context);
+          cancel_timer();
         },
       ),
       body: Container(
@@ -164,8 +190,7 @@ class _TimerScreenState extends State<TimerScreen> {
                 RaisedButton(
                   onPressed: () {
                     setState(() {
-                      _controller.pause();
-                      Navigator.pop(context);
+                      cancel_timer();
                     });
                   },
                   color: Colors.orange[300],
