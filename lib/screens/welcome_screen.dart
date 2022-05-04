@@ -108,9 +108,14 @@ class _MyHomePageState extends State<MyHomePage> {
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
+      drawer: Drawer(
+        child: ListView(),
+      ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 75, right: 5),
         child: (_selectedIndex == 0)
@@ -152,6 +157,20 @@ class _MyHomePageState extends State<MyHomePage> {
               currentIndex: _selectedIndex,
               selectedItemColor: Colors.green[800],
               onTap: _onItemTapped),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 5, top: 20),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: Icon(Icons.menu),
+              color: Colors.black,
+              iconSize: 30,
+              onPressed: () {
+                _globalKey.currentState.openDrawer();
+              },
+            ),
+          ),
         ),
       ]),
     );
