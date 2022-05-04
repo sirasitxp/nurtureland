@@ -3,6 +3,7 @@ import 'package:horizontal_card_pager/card_item.dart';
 import 'package:horizontal_card_pager/horizontal_card_pager.dart';
 import 'package:intl/intl.dart';
 import 'package:nurtureland/main.dart';
+import 'package:nurtureland/screens/signin_screen.dart';
 import 'package:nurtureland/screens/timer_screen.dart';
 import 'package:flutter_circular_slider/flutter_circular_slider.dart';
 import 'package:nurtureland/Models/minutes.dart';
@@ -148,10 +149,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Sign out'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInScreen()),
+                );
               },
             ),
           ],
@@ -545,7 +546,6 @@ class _MyHomePageState extends State<MyHomePage> {
               RaisedButton(
                 onPressed: () {
 //                    Navigate to next screen
-
                   Navigator.push(
                     context,
                     MaterialPageRoute(

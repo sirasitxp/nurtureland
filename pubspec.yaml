@@ -41,6 +41,7 @@ dependencies:
   flutter_local_notifications: ^6.0.0
   webview_flutter: ^2.0.10
   path_provider: ^2.0.2
+  flutter_svg: ^1.0.3
 
 
 
