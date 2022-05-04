@@ -114,7 +114,48 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: _globalKey,
       drawer: Drawer(
-        child: ListView(),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("images/header.png"),
+                  fit: BoxFit.cover,
+                  opacity: 0.75,
+                ),
+              ),
+              child: Text(
+                'Hello there!',
+                //: TODO
+                // Add username after the greeting.
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text('Stats'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Sign out'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 75, right: 5),
@@ -203,7 +244,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 30, bottom: 30),
                     child: Text(
-                      "Get Things Will Come.",
+                      "Great Things Will Come.",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
