@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "815559897323",
+    "project_id": "nurtureland-bfdc9",
+    "storage_bucket": "nurtureland-bfdc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815559897323:android:160d99e4814faf6a048eae",
+        "android_client_info": {
+          "package_name": "com.sirux.nurtureland"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815559897323-blc5uhvd2i6ovu59nlr3qrsnumrl4vim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKvOyMueU2zi0vXs9jECbVxrSWPquvf2k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815559897323-blc5uhvd2i6ovu59nlr3qrsnumrl4vim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
