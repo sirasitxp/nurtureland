@@ -70,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -84,18 +84,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 Text("Sign in with Google"),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'images/facebook-original.svg',
-                  ),
-                ),
-                Text("Sign in with Facebook"),
               ],
             ),
           ],
